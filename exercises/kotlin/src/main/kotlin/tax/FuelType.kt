@@ -1,6 +1,6 @@
 package tax
 
-enum class FuelType {
+enum class FuelType (rde2: Boolean = true) {
     PETROL,
     DIESEL,
     ELECTRIC,
