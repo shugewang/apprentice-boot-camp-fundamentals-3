@@ -1,3 +1,5 @@
+[![Java CI with Gradle](https://github.com/shugewang/apprentice-boot-camp-fundamentals-3/actions/workflows/gradle.yml/badge.svg)](https://github.com/shugewang/apprentice-boot-camp-fundamentals-3/actions/workflows/gradle.yml)
+
 <!--- ORGANISER THINGS TO CONSIDER 
 - Which technical competencies, behaviours and knowledge module topics does the bootcamp cover/meet
 - Structuring retros so that they can inform thinking for individual's personal learning records (off the job training record tab in their learning logs)
