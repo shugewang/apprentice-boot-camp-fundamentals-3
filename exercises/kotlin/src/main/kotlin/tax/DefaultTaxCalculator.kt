@@ -2,9 +2,9 @@ package tax
 
 class DefaultTaxCalculator : TaxCalculator() {
     override fun calculateTax(vehicle: Vehicle?): Int {
-        when (vehicle?.fuelType) {
+        return when (vehicle?.fuelType) {
             FuelType.PETROL -> {
-                return when (vehicle.co2Emissions) {
+                when (vehicle.co2Emissions) {
                     0 -> 0
                     in 1..50 -> 10
                     in 51..75 -> 25
@@ -20,9 +20,8 @@ class DefaultTaxCalculator : TaxCalculator() {
                     else -> 2070
                 }
             }
-
             FuelType.ALTERNATIVE_FUEL -> {
-                return when (vehicle.co2Emissions) {
+                when (vehicle.co2Emissions) {
                     0 -> 0
                     in 1..50 -> 0
                     in 51..75 -> 15
@@ -38,9 +37,8 @@ class DefaultTaxCalculator : TaxCalculator() {
                     else -> 2060
                 }
             }
-
             FuelType.DIESEL -> {
-                return when (vehicle?.co2Emissions) {
+                when (vehicle.co2Emissions) {
                     0 -> 0
                     in 1..50 -> 25
                     in 51..75 -> 105
@@ -55,8 +53,7 @@ class DefaultTaxCalculator : TaxCalculator() {
                     in 226..255 -> 2070
                     else -> 2070
                 }
-            }
-            else -> return 0
+            } else -> 0
         }
     }
 }
