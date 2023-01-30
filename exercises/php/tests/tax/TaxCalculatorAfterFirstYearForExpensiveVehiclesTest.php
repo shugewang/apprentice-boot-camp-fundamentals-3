@@ -20,6 +20,7 @@ class TaxCalculatorAfterFirstYearForExpensiveVehiclesTest extends TestCase
 
     public function testSubsequentYearsTaxForPetrolIfOver40K(): void
     {
+        $this->markTestSkipped('Ignored for now.');
         $vehicle = new Vehicle(206, FuelType::PETROL, self::$FIRST_OF_APRIL_2017, 50000);
 
         $this->assertEquals(450, $this->taxCalculator->calculateTax($vehicle));
@@ -27,6 +28,7 @@ class TaxCalculatorAfterFirstYearForExpensiveVehiclesTest extends TestCase
 
     public function testSubsequentYearsTaxForElectricIfOver40K(): void
     {
+        $this->markTestSkipped('Ignored for now.');
         $vehicle = new Vehicle(206, FuelType::ELECTRIC, self::$FIRST_OF_APRIL_2017, 50000);
 
         $this->assertEquals(310, $this->taxCalculator->calculateTax($vehicle));
@@ -34,6 +36,7 @@ class TaxCalculatorAfterFirstYearForExpensiveVehiclesTest extends TestCase
 
     public function testSubsequentYearsTaxForAlternativeFuelIfOver40K(): void
     {
+        $this->markTestSkipped('Ignored for now.');
         $vehicle = new Vehicle(206, FuelType::ALTERNATIVE_FUEL, self::$FIRST_OF_APRIL_2017, 50000);
 
         $this->assertEquals(440, $this->taxCalculator->calculateTax($vehicle));
