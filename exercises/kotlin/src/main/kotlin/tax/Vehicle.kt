@@ -7,4 +7,5 @@ class Vehicle(
     val fuelType: FuelType,
     val dateOfFirstRegistration: LocalDate,
     val listPrice: Int
+
 )

@@ -1,6 +1,6 @@
 package tax
 
-class DefaultTaxCalculator : TaxCalculator() {
+class DefaultTaxCalculator(private val accountForSecondYearTax: Boolean, private val accountForExpensiveCar: Boolean) : TaxCalculator() {
     override fun calculateTax(vehicle: Vehicle?): Int {
         return when (vehicle?.fuelType) {
             FuelType.PETROL -> {
