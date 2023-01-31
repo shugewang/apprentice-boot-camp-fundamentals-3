@@ -9,18 +9,26 @@ class DefaultTaxCalculator(
     private val accountForExpensiveCar: Boolean = false
 ) : TaxCalculator() {
     override fun calculateTax(vehicle: Vehicle?): Int {
-        if (accountForExpensiveCar) {
-            val from = vehicle?.dateOfFirstRegistration
-            val to = LocalDate.of(2019, Month.JANUARY, 1)
-            val period = Period.between(from, to)
-            val years = period.years
-            if (years >= 1 && vehicle?.listPrice!! > 40000) {
-                return when (vehicle?.fuelType) {
-                    FuelType.PETROL, FuelType.DIESEL -> 450
-                    FuelType.ELECTRIC -> 310
-                    FuelType.ALTERNATIVE_FUEL -> 440
-                    else -> 0
+        val from = vehicle?.dateOfFirstRegistration
+        val to = LocalDate.of(2019, Month.JANUARY, 1)
+        val period = Period.between(from, to)
+        val years = period.years
+        if (accountForSecondYearTax && years >= 1) {
+            if (accountForExpensiveCar) {
+                if (vehicle?.listPrice!! > 40000) {
+                    return when (vehicle?.fuelType) {
+                        FuelType.PETROL, FuelType.DIESEL -> 450
+                        FuelType.ELECTRIC -> 310
+                        FuelType.ALTERNATIVE_FUEL -> 440
+                        else -> 0
+                    }
                 }
+            }
+            return when (vehicle?.fuelType) {
+                FuelType.PETROL -> 140
+                FuelType.DIESEL -> 140
+                FuelType.ALTERNATIVE_FUEL -> 130
+                else -> 0
             }
         }
         return when (vehicle?.fuelType) {
